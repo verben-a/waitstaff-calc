@@ -15,6 +15,10 @@ main .row {
   margin-bottom: 20px;
 }
 
+.links {
+  text-align: center;
+}
+
 .row {
   max-width: 1000px;
   padding-left: 20px;

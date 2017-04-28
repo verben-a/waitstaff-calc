@@ -1,19 +1,46 @@
-angular.module('myApp', [])
-    .controller('myController', function() {
+angular.module('myApp', ['ngRoute'])
 
-        var vm = this;
-        vm.price = null;
-        vm.tax = null;
-        vm.tip = null;
-        vm.total = 0;
-        vm.mealcount = 0;
-        vm.tipDollarValue = 0;
+// .value('')
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/', {
+        templateUrl: 'home.html',
+        controller: 'HomeCtrl',
+        // controllerAs: 'vm'
+    }).when('/newmeal', {
+        templateUrl: 'newmeal.html',
+        controller: 'NewMeal',
+        // controllerAs: 'vm'
+    }).when('/myearnings', {
+        templateUrl: 'myearnings.html',
+        controller: 'MyEarnings',
+        // controllerAs: 'vm'
+    })
+}])
+
+.controller('HomeCtrl', [function() {
+
+}])
+
+.controller('NewMeal', ['$scope', '$rootScope', function($scope, $rootScope) {
+    // var vm = this;
+    console.log('we are in new')
+    $rootScope.price = null;
+    $rootScope.tax = null;
+    $rootScope.tip = null;
+    $rootScope.total = 0;
+    $rootScope.mealcount = 0;
+    $rootScope.tipDollarValue = 0;
+    console.log($rootScope)
 
 
-        vm.getTotal = function() {
-            vm.mealcount++;
-            vm.tipDollarValue += vm.price * (vm.tip / 100);
-            vm.total = vm.price * (vm.tax / 100) + vm.price + vm.price * (vm.tip / 100);
-        }
+    $scope.getTotal = function() {
+        $rootScope.mealcount++;
+        $rootScope.tipDollarValue += $rootScope.price * ($rootScope.tip / 100);
+        $rootScope.total = $rootScope.price * ($rootScope.tax / 100) + $rootScope.price + $rootScope.price * ($rootScope.tip / 100);
+    }
 
-    });
+}]).controller('MyEarnings', function($rootScope) {
+
+    console.log('$rootScope', $rootScope)
+
+})

@@ -1,0 +1,11 @@
+<div class="col-6">
+<th>My Earnings Info</th>
+<tr>
+    <td>
+        <p>Tip total: {{ $root.tipDollarValue | number:2 }}</p>
+        <p>Meal count: {{ $root.mealcount}}</p>
+        <p>Average tip per meal: {{$root.tipDollarValue / $root.mealcount | number:2}}</p>
+    </td>
+</tr>
+</table>
+</div>
