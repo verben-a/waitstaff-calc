@@ -16,7 +16,7 @@
             </tr>
         </table>
         <br>
-        <a href="#/myearnings" class="submit">Submit</a>
+        <a ng-click="getTotal()" class="submit">Submit</a>
         <!-- <button class="submit">Submit</button> -->
         <!-- <button class="submit">Cancel</button> -->
     </form>
@@ -28,7 +28,7 @@
             <td>
                 <p>Subtotal: {{ $root.price }} </p>
                 <p>Tip: {{ $root.tip }} </p>
-                <p>Total: {{ $root.total | number:2}}</p>
+                <p>Total: {{ $root.price + $root.price * ($root.tip / 100) | number:2}}</p>
             </td>
         </tr>
     </table>

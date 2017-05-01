@@ -11,7 +11,7 @@
     <!-- <script src="https://code.angularjs.org/1.3.10/angular.js"></script> -->
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" ng-class="{loading: isLoading}">
     <!-- <div ng-controller="HomeCtrl"> -->
     <nav>
         <h1>Waitstaff Calculator</h1>
@@ -22,7 +22,9 @@
             <a ng-href="#/newmeal">New Meal</a>
             <a ng-href="#/myearnings">My earnings</a>
         </div>
-        <div class="row" ng-view>
+        <div class="animate-view-container">
+        <div class="row" ng-view class="animate-view">
+        </div>
         </div>
     </main>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
